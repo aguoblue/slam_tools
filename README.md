@@ -272,6 +272,7 @@ ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 cd your_path/data/
 git clone https://github.com/Russ76/foxglove_studio.git
 cd foxglove_studio
+yarn install 
 yarn run
 yarn web:serve
 ```

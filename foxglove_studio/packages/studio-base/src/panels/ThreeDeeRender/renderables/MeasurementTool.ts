@@ -93,6 +93,7 @@ export class MeasurementTool extends SceneExtension<Renderable, MeasurementToolE
   );
 
   #label: Label;
+  #firstLabel: Label;
 
   #point1NeedsUpdate = false;
   #point2NeedsUpdate = false;
@@ -123,6 +124,20 @@ export class MeasurementTool extends SceneExtension<Renderable, MeasurementToolE
     this.#label.material.depthWrite = false;
     this.#label.material.transparent = true;
 
+
+    this.#firstLabel = renderer.labelPool.acquire();
+    this.#firstLabel.visible = false;
+    this.#firstLabel.setBillboard(true);
+    this.#firstLabel.setSizeAttenuation(false);
+    this.#firstLabel.setLineHeight(12);
+    this.#firstLabel.setColor(1, 0, 0);
+
+    this.#firstLabel.renderOrder = LATE_RENDER_ORDER;
+    this.#firstLabel.material.depthTest = false;
+    this.#firstLabel.material.depthWrite = false;
+    this.#firstLabel.material.transparent = true;
+
+
     this.#lineOccluded.renderOrder = LATE_RENDER_ORDER;
     this.#circle1.renderOrder = LATE_RENDER_ORDER;
     this.#circle2.renderOrder = LATE_RENDER_ORDER;
@@ -138,12 +153,15 @@ export class MeasurementTool extends SceneExtension<Renderable, MeasurementToolE
     this.add(this.#line);
     this.add(this.#lineOccluded);
     this.add(this.#label);
+    // 添加到场景
+    this.add(this.#firstLabel);
     this.#setState("idle");
   }
 
   public override dispose(): void {
     super.dispose();
     this.renderer.labelPool.release(this.#label);
+    this.renderer.labelPool.release(this.#firstLabel);
     this.#circleGeometry.dispose();
     this.#circleMaterial.dispose();
     this.#line.geometry.dispose();
@@ -253,6 +271,14 @@ export class MeasurementTool extends SceneExtension<Renderable, MeasurementToolE
     if (this.#point1) {
       this.#circle1.visible = true;
       this.#circle1.position.copy(this.#point1);
+
+      // 添加第一个点标签的显示
+      this.#firstLabel.visible = true;
+      this.#firstLabel.position.copy(this.#point1);
+      this.#firstLabel.setText(
+        `(${this.#point1.x.toFixed(2)}, ${this.#point1.y.toFixed(2)}, ${this.#point1.z.toFixed(2)})`
+      );
+
 
       if (this.#point1NeedsUpdate) {
         this.#linePositionAttribute.setXYZ(0, this.#point1.x, this.#point1.y, this.#point1.z);

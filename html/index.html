@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮示例</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="nav-bar">
+        <button class="nav-button active" onclick="switchContent('vinsfusion')">VINSFusion</button>
+        <button class="nav-button" onclick="switchContent('egoplanner')">EgoPlanner</button>
+        <button class="nav-button" onclick="switchContent('rtabmap')">RTABMap</button>
+    </div>
+
+    <div id="vinsfusion" class="content-page">
+        <div class="button-response-row">
+            <!-- <span>VINS-Fusion状态监控</span> -->
+            <button id="helloButton">启动demo</button>
+            <div id="responseMessage" class="response-area"></div>
+        </div>
+
+    </div>
+
+    <div id="egoplanner" class="content-page" style="display: none;">
+        <div class="button-response-row">
+            <!-- <span>EgoPlanner 控制面板</span> -->
+            <button id="egoButton">启动</button>
+            <div id="egoResponse" class="response-area"></div>
+        </div>
+        <div class="button-input-row">
+            <button id="setPointButton">设置目标点</button>
+            <div class="coordinate-inputs">
+                <div class="input-group">
+                    <label for="x-coord">X:</label>
+                    <input type="number" id="x-coord" step="0.1" value="0.0" placeholder="0.0">
+                </div>
+                <div class="input-group">
+                    <label for="y-coord">Y:</label>
+                    <input type="number" id="y-coord" step="0.1" value="0.0" placeholder="0.0">
+                </div>
+                <div class="input-group">
+                    <label for="z-coord">Z:</label>
+                    <input type="number" id="z-coord" step="0.1" value="0.0" placeholder="0.0">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="rtabmap" class="content-page" style="display: none;">
+        <div class="button-response-row">
+            <!-- <span>RTABMap 监控界面</span> -->
+            <button id="rtabButton">启动demo</button>
+            <div id="rtabResponse" class="response-area"></div>
+        </div>
+    </div>
+    <iframe id="foxgloveFrame" src="http://127.0.0.1:8080" title="foxglove"></iframe>
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.nav-bar {
+    background-color: #2c3e50;
+    padding: 0;
+    display: flex;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-button {
+    color: #ecf0f1;
+    background: none;
+    border: none;
+    padding: 15px 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-button:hover {
+    background-color: #34495e;
+}
+
+.nav-button.active {
+    background-color: #3498db;
+    color: white;
+}
+
+.content-page {
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #f5f6fa;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 120px);
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button-response-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.button-response-row button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-response-row button:hover {
+    background-color: #2980b9;
+}
+
+.button-response-row div {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-grow: 1;
+}
+
+.response-area {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-grow: 1;
+    min-height: 20px;
+    min-width: 200px;
+}
+
+.button-input-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.coordinate-inputs {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.input-group input {
+    width: 80px;
+    padding: 6px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 3px rgba(52, 152, 219, 0.3);
+}
+
+#setPointButton {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#setPointButton:hover {
+    background-color: #2980b9;
+} 

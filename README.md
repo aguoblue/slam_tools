@@ -135,8 +135,9 @@ docker run -it \
 print_line "脚本执行完成"
 ```
 
-<h4 id="tAwrt">查看是否构建成功</h4>
-```bash
+<h4 id="tAwrt">查看是否构建成功</h4>   
+
+```
 source ./install/setup.bash
 ros2 run vins vins_node ./src/VINS-Fusion-ROS2/config/euroc/euroc_stereo_config.yaml
 ```
@@ -243,7 +244,8 @@ print_line "脚本执行完成"
 ```
 
 <h4 id="nTAHd">查看是否构建成功</h4>
-```bash
+
+```
 source ./install/setup.bash &&
 ros2 launch ego_planner single_run_in_sim.launch.py
 ```
@@ -252,23 +254,26 @@ ros2 launch ego_planner single_run_in_sim.launch.py
 
 <h3 id="PLg6z">foxglove</h3>
 <h4 id="zhr4A">下载npm yarn </h4>
+
 时间可能较长
 
-```bash
+```
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -   #20.x的版本也可以
 apt-get install -y nodejs
 npm install -g yarn
 ```
 
 <h4 id="IAGDF">下载 桥接库</h4>
-```bash
+
+```
 sudo apt install ros-humble-foxglove-bridge
 
 ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 ```
 
 <h4 id="Yg70e">下载foxglove</h4>
-```bash
+
+```
 cd your_path/data/
 git clone https://github.com/Russ76/foxglove_studio.git
 cd foxglove_studio
@@ -286,6 +291,7 @@ foxglove_studio/packages/studio-base/src/panels/ThreeDeeRender/renderables/Measu
 
 <h3 id="CISpz">其他脚本</h3>
 <h4 id="FGto2">bag.sh</h4>
+
 ```cpp
 cd your_path/ws/data/bag
 ros2 bag play ./MH01

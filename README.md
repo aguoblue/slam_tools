@@ -272,11 +272,16 @@ ros2 launch foxglove_bridge foxglove_bridge_launch.xml
 cd your_path/data/
 git clone https://github.com/Russ76/foxglove_studio.git
 cd foxglove_studio
+git lfs pull
 yarn install 
 yarn run
 yarn web:serve
 ```
 
+替换文件
+```
+foxglove_studio/packages/studio-base/src/panels/ThreeDeeRender/renderables/MeasurementTool.ts
+```
 
 
 <h3 id="CISpz">其他脚本</h3>
